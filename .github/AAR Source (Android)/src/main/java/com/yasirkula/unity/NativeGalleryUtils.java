@@ -39,7 +39,7 @@ public class NativeGalleryUtils
 		else if( isXiaomiOrMIUI < 0 )
 			return false;
 
-		if( "xiaomi".equalsIgnoreCase( android.os.Build.MANUFACTURER ) )
+		if( "xiaomi".equalsIgnoreCase( Build.MANUFACTURER ) )
 		{
 			isXiaomiOrMIUI = 1;
 			return true;
@@ -51,7 +51,7 @@ public class NativeGalleryUtils
 		BufferedReader inputStream = null;
 		try
 		{
-			java.lang.Process process = Runtime.getRuntime().exec( "getprop ro.miui.ui.version.name" );
+			Process process = Runtime.getRuntime().exec( "getprop ro.miui.ui.version.name" );
 			inputStream = new BufferedReader( new InputStreamReader( process.getInputStream() ), 1024 );
 			line = inputStream.readLine();
 
@@ -89,7 +89,7 @@ public class NativeGalleryUtils
 	public static boolean IsMeizu()
 	{
 		if( isMeizu == 0 )
-			isMeizu = android.os.Build.MANUFACTURER.equalsIgnoreCase( "meizu" ) ? 1 : -1;
+			isMeizu = Build.MANUFACTURER.equalsIgnoreCase( "meizu" ) ? 1 : -1;
 
 		return isMeizu == 1;
 	}
